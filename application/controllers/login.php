@@ -20,7 +20,7 @@ class login extends CI_Controller {
 			$this->load->view('false');
 		}
 		else{
-			$this->load->view('true');
+			$this->load->view('dashboard');
 		}
 	}
 }
