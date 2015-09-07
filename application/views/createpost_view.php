@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Simple Sidebar - Start Bootstrap Template</title>
+    <title>Create Post</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url();?>application/assets/css/bootstrap.min.css" rel="stylesheet">
@@ -35,36 +35,24 @@
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
                     <a href="#">
-                        Start Bootstrap
+                        ICC Blog
                     </a>
                 </li>
                 <li>
-                    <a href="#">Dashboard</a>
+                    <a href="<?php echo base_url();?>index.php/dashboard">Dashboard</a>
                 </li>
                 <li>
-                    <a href="#">Shortcuts</a>
+                    <a href="<?php echo base_url();?>index.php/createpost">Create</a>
                 </li>
                 <li>
-                    <a href="#">Overview</a>
-                </li>
-                <li>
-                    <a href="#">Events</a>
-                </li>
-                <li>
-                    <a href="#">About</a>
-                </li>
-                <li>
-                    <a href="#">Services</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
+                    <a href="<?php echo base_url();?>index.php/login/logout">Logout</a>
                 </li>
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
 
         <!-- Page Content -->
-        <div id="page-content-wrapper">
+       <!--  <div id="page-content-wrapper">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
@@ -75,7 +63,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- /#page-content-wrapper -->
 
     </div>

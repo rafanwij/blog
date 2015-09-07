@@ -2,10 +2,20 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class login extends CI_Controller {
+	public function __construct(){
+		parent:: __construct();
+		$this->load->library(array('session','encrypt'));
+	}
 
 	public function index()
-	{
-		$this->load->view('login_view');
+	{	
+		if($this->session->userdata('username') != null && $this->session->userdata('username') !="")
+		{
+			redirect('/dashboard','refresh');
+		}
+
+		$error['err'] = '';
+		$this->load->view('login_view',$error);
 	}
 
 	public function input(){
@@ -17,10 +27,24 @@ class login extends CI_Controller {
 		$query = $this->login->login($username,$password);
 		
 		if($query == false){
-			$this->load->view('false');
+			$error['err'] = 'Invalid username or password';
+			$this->load->view('login_view',$error);
+		}
+		else if($this->session->userdata('username') != null && $this->session->userdata('username') !="")
+		{
+			redirect('/dashboard','refresh');
 		}
 		else{
-			$this->load->view('dashboard');
+			$data = array (
+					'username' => $query->row(0)->username
+				);
+			$this->session->set_userdata($data);
+			redirect('/dashboard','refresh');
 		}
+	}
+
+	public function logout(){
+		$this->session->unset_userdata('username');
+		redirect('/login','refresh');
 	}
 }

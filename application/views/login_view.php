@@ -17,7 +17,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         	<div id="output"></div>
         	<img src="<?php echo base_url();?>application/assets/pic/chef.png" class= "avatar">
             <div class="form-box">
-            <?php			
+            <?php
+        		echo $err;
 				echo form_open('login/input');
 
 				$opts = 'placeholder="username"';
