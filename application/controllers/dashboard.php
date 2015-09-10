@@ -62,6 +62,9 @@ class dashboard extends CI_Controller {
 		$text='';
 		$this->load->model('dashboard_model','dashboard');
 		$currentPage = $this->session->userdata('currentPage')+1;
+		if($currentPage+1 > $this->session->userdata('sumPage')){
+			$currentPage=$currentPage-1;
+		}
 		$this->session->set_userdata('currentPage',$currentPage);
 		$item_perPage = 3;
 		$position = $currentPage*$item_perPage;
@@ -95,6 +98,9 @@ class dashboard extends CI_Controller {
 		$text='';
 		$this->load->model('dashboard_model','dashboard');
 		$currentPage = $this->session->userdata('currentPage')-1;
+		if($currentPage < 0){
+			$currentPage=0;
+		}
 		$this->session->set_userdata('currentPage',$currentPage);
 		$item_perPage = 3;
 		$position = $currentPage*$item_perPage;
