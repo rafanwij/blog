@@ -38,7 +38,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo base_url();?>index.php/dashboard">Dashboard</a>
+                    <a href="<?php echo base_url();?>index.php/dashboard/index/f">Dashboard</a>
                 </li>
                 <li>
                     <a href="<?php echo base_url();?>index.php/createpost">Create</a>

@@ -4,7 +4,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class dashboard extends CI_Controller {
 	public function index()
 	{	
-		$this->session->unset_userdata('sumPage','currentPage');
+		if($this->uri->segment(3)=='f'){
+			$this->session->set_userdata('currentPage',0);
+		}
 		$msg['previous'] = 'style="visibility:hidden;"';
 		$msg['next']='style="visibility:hidden;"';
 		$msg['page']='';
@@ -17,11 +19,13 @@ class dashboard extends CI_Controller {
 				if($query != false){
 					$sumRow = $query->num_rows();
 					$sumPage = ceil($sumRow / 3);
-					$data = array(
-						'sumPage' => $sumPage,
-						'currentPage' => 0
-						);
-					$this->session->set_userdata($data);
+					$this->session->set_userdata('sumPage',$sumPage);
+					if(!$this->session->userdata('currentPage')){
+						$data = array(
+							'currentPage' => 0
+							);
+						$this->session->set_userdata($data);
+					}
 					$currentPage = $this->session->userdata('currentPage');
 					$item_perPage = 3;
 					$position = $currentPage*$item_perPage;
@@ -29,7 +33,8 @@ class dashboard extends CI_Controller {
 
 					for($i=0;$i<$result->num_rows();$i++){
 						$content = substr($result->row($i)->postContent, 0,400).'...';
-						$text = $text.'<h2>'.$result->row($i)->postTitle.'</h2><hr>'.$content.'</p><a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a><hr>';
+						$baseUrl = base_url().'index.php/dashboard/delete/'.$result->row($i)->postId;
+						$text = $text.'<h2>'.$result->row($i)->postTitle.'</h2><hr>'.$content.'</p><a class="btn btn-primary" href="'.$baseUrl.'">Read More <span class="glyphicon glyphicon-chevron-right"></span></a><hr>';
 					}
 					$msg['text'] = $text;
 
@@ -72,7 +77,8 @@ class dashboard extends CI_Controller {
 
 		for($i=0;$i<$result->num_rows();$i++){
 			$content = substr($result->row($i)->postContent, 0,400).'...';
-			$text = $text.'<h2>'.$result->row($i)->postTitle.'</h2><hr>'.$content.'</p><a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a><hr>';
+			$baseUrl = base_url().'index.php/dashboard/delete/'.$result->row($i)->postId;
+			$text = $text.'<h2>'.$result->row($i)->postTitle.'</h2><hr>'.$content.'</p><a class="btn btn-primary" href="'.$baseUrl.'">Read More <span class="glyphicon glyphicon-chevron-right"></span></a><hr>';
 		}
 		$msg['text'] = $text;
 		$sumPage = $this->session->userdata('sumPage');
@@ -108,7 +114,8 @@ class dashboard extends CI_Controller {
 
 		for($i=0;$i<$result->num_rows();$i++){
 			$content = substr($result->row($i)->postContent, 0,400).'...';
-			$text = $text.'<h2>'.$result->row($i)->postTitle.'</h2><hr>'.$content.'</p><a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a><hr>';
+			$baseUrl = base_url().'index.php/dashboard/delete/'.$result->row($i)->postId;
+			$text = $text.'<h2>'.$result->row($i)->postTitle.'</h2><hr>'.$content.'</p><a class="btn btn-primary" href="'.$baseUrl.'">Read More <span class="glyphicon glyphicon-chevron-right"></span></a><hr>';
 		}
 		$msg['text'] = $text;
 		$sumPage = $this->session->userdata('sumPage');
@@ -128,6 +135,14 @@ class dashboard extends CI_Controller {
 			$msg['next'] = '';
 		}
 		$this->load->view('dashboard_view',$msg);
+	}
+
+	public function delete(){
+		$postId = $this->uri->segment(3);
+		$this->load->model('Dashboard_model','dashboard');
+		$this->dashboard->deleteData($postId);
+		$this->index();
+
 	}
 }
 
