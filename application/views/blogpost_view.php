@@ -57,7 +57,8 @@
 					<section id="one" class="wrapper style1 special" style="padding-top:3em; padding-bottom:5em; background-image:url('<?php echo base_url();?>application/assets/pic/paper.jpg');">
 						<div class="inner">
 							<header class="major" style="margin-bottom:0.5em;width:100%;display:inline-block;">	
-								<div id="blogBackground" style="padding:28em 8em 5em 10em;height:100%;">
+								<div><img src="<?php echo base_url();?>application/assets/pic/chef.png" id="chefPic"></div>
+								<div id="blogBackground" style="padding:8em 8em 5em 10em;height:100%;margin-top:-3em;">
 									<h1 id="blogTitle" style="line-height:0em;letter-spacing:0;font-weight:0;">Blog</h1>
 									<?php echo $text ?>
 									<div style="inline-block;">

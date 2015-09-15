@@ -1,10 +1,10 @@
 #blogBackground
 {
-	background-image: -moz-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0)), url("../pic/blogbackground.png") no-repeat !important;
-	background-image: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0)), url("../pic/blogbackground.png") no-repeat !important;
-	background-image: -ms-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,1)), url("../pic/blogbackground.png") no-repeat !important;
-	background-image: linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0)), url("../pic/blogbackground.png") no-repeat !important;
-	background-image: url("../pic/blogbackground.png");
+	background-image: -moz-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0)), url("../pic/papan.png") no-repeat !important;
+	background-image: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0)), url("../pic/papan.png") no-repeat !important;
+	background-image: -ms-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,1)), url("../pic/papan.png") no-repeat !important;
+	background-image: linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0)), url("../pic/papan.png") no-repeat !important;
+	background-image: url("../pic/papan.png");
 	background-size: 100% 100% !important;
 	width: 100% !important;
 	margin: 0 auto !important;
@@ -19,6 +19,12 @@
     font-weight: 400;
     color: #fff;
 	text-transform: none !important;
+}
+
+#chefPic
+{
+	width:40% !important;
+	margin-bottom: -3.5em !important;
 }
 
 .wrapper.style1 {
@@ -144,48 +150,43 @@ header.major h2
 
 @media screen and (max-width: 1070px)
 {
+	#chefPic
+	{
+		width:50% !important;
+		margin-bottom: -3.9em !important;
+	}
 	#blogTitle
 	{
 		margin-top: 4.5em !important;
 	}
 	#blogBackground
 	{
-		background-image: url("../pic/blogBackgroundhp.png") !important;
-		padding:6em 6em 7em 10em !important;
+		padding:0.5em 4em 7em 5em !important;
 	}
 }
-
-@media screen and (max-width: 870px)
-{
-	#blogTitle
-	{
-		margin-top: 4.5em !important;
-	}
-}
-
 
 @media screen and (max-width: 660px)
 {
 	#blogTitle
 	{
-		margin-top: 7.5em !important;
-	}
-	#blogBackground
-	{		
-		padding:6em 4em 7em 5em !important;
+		margin-top: 4.5em !important;
 	}
 }
 
 @media screen and (max-width: 600px)
 {
+	#chefPic
+	{
+		width:70% !important;
+		margin-bottom: -3.5em !important;
+	}
 	#blogTitle
 	{
-		margin-top: 0em !important;
+		margin-top: 2em !important;
 	}
 	#blogBackground
 	{		
-		background-image: url('../pic/blogbackgroundpjg.png') !important;
-		padding:6em 4em 7em 5em !important;
+		padding:8em 4em 7em 5em !important;
 	}
 }
 
@@ -197,6 +198,7 @@ header.major h2
 	}
 	#blogBackground
 	{		
-		padding:6em 2em 7em 3em !important;
+		background-image: url('../pic/blogbackgroundpjg.png');
+		padding:6em 2em 9em 3em !important;
 	}
 }
