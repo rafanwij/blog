@@ -58,7 +58,7 @@
 						<div class="inner">
 							<header class="major" style="margin-bottom:0.5em;width:100%;display:inline-block;">	
 								<div><img src="<?php echo base_url();?>application/assets/pic/chef.png" id="chefPic"></div>
-								<div id="blogBackground" style="padding:8em 8em 5em 10em;height:100%;margin-top:-3em;">
+								<div id="blogBackground" style="margin-top:-3em;">
 									<h1 id="blogTitle" style="line-height:0em;letter-spacing:0;font-weight:0;">Blog</h1>
 									<?php echo $text ?>
 									<div style="inline-block;">

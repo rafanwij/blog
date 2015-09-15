@@ -57,22 +57,23 @@
 					<section id="one" class="wrapper style1 special" style="padding-top:3em; padding-bottom:5em; background-image:url('<?php echo base_url();?>application/assets/pic/paper.jpg');">
 						<div class="inner">
 							<header class="major" style="margin-bottom:0.5em;width:100%;display:inline-block;">	
-								<div id="blogBackground" style="padding:20em 8em 5em 10em;height:100%;">
+								<div><img src="<?php echo base_url();?>application/assets/pic/chef.png" id="chefPic"></div>
+								<div id="blogBackground">
 									<h1 id="blogTitle" style="line-height:0em;letter-spacing:0;font-weight:0;">Blog</h1>
 									<div class="blog-post image-post" style="display:block;margin-bottom:">
 										<!-- Post Thumb -->
-										<div class="post-head" style="float:left;">											
-											<img alt="" src="<?php echo base_url(); ?>application/assets/pic/chef07.png">											
+										<div class="post-head-detail">											
+											<img id="imgDetail" alt="" src="<?php echo base_url(); ?>application/assets/pic/coba.jpg">											
 										</div>
 										<!-- Post Content -->
-										<div class="post-content">
-											<div style="inline-block;">
-												<div class="col-md-10 col-sm-10 col-xs-10" style="text-align:start;height:150px;vertical-align:bottom;display:table-cell;">
+										<div class="post-content" style="display:inline-block;">
+											<div>
+												<!-- <div class="col-md-10 col-sm-10 col-xs-10" style="text-align:start;height:150px;vertical-align:bottom;display:table-cell;"> -->
 													<h2 style="font-size:1.5em;"><a href="#"><?php echo $title ?></a></h2>
 													<ul class="post-meta">
 														<li><?php echo $date ?></li>
 													</ul>
-												</div>
+												<!-- </div> -->
 											</div>
 											<p><?php echo $content ?></p>
 											
