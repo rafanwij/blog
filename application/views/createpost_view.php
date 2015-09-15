@@ -49,23 +49,45 @@
                 </li>
             </ul>
         </div>
-        <!-- /#sidebar-wrapper -->
-
-        <!-- Page Content -->
-       <!--  <div id="page-content-wrapper">
+                <div id="page-content-wrapper">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1>Simple Sidebar</h1>
-                        <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
-                        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
-                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+                            <div class="row">
+                                <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+                                <div class="col-md-10">
+                                    <?php echo form_open('createpost/createPost'); ?>
+                                        <div class="form-group">
+                                            <label for="name" class="col-sm-2 control-label">Title</label>
+                                            <div class="col-sm-10">
+                                                <?php 
+                                                 $opts = 'class="form-control" placeholder="Title" id="title"';
+                                                 echo form_input('title', '', $opts); 
+                                                ?>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="message" class="col-sm-2 control-label">Content</label>
+                                            <div class="col-sm-10">
+                                                <?php 
+                                                    $opts = 'class="form-control" placeholder="Content" rows="4" id="content"';
+                                                    echo form_textarea('content','', $opts);
+                                                 ?>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-5 col-sm-offset-2">
+                                                <?php echo form_submit('submit','Log In',"class='btn btn-info btn-block login' style='background-color:#5bc0de; margin-top:10px;'"); ?>
+                                                <p id="err" style="margin-top:10px;"></p>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div> -->
-        <!-- /#page-content-wrapper -->
-
+             </div>
     </div>
     <!-- /#wrapper -->
 
@@ -80,6 +102,18 @@
     $("#menu-toggle").click(function(e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
+    });
+    $('form').submit(function () {
+        var title = $('#title').val();
+        var content = $('#content').val();
+        if (title  === '') {
+            $('#err').text("Title must be filled.");
+            return false;
+        }
+        else if(content === ''){
+            $('#err').text("Content must be filled.");
+            return false;
+        }
     });
     </script>
 

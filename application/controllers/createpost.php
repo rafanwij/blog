@@ -15,6 +15,21 @@ class createpost extends CI_Controller {
 		else{
 			redirect('/login','refresh');
 		}
-		
+	}
+	public function createPost(){
+		if($this->session->userdata('username') != null && $this->session->userdata('username') !="")
+		{
+			$title = $this->input->post('title');
+			$content = $this->input->post('content');
+			$imagePath = '';
+			
+			$this->load->model('createpost_model','createpost');
+			$query = $this->createpost->createpost($title,$content,$imagePath);
+			$this->session->set_userdata('currentPage',0);
+			redirect('/dashboard','refresh');
+		}
+		else{
+			redirect('/login','refresh');
+		}
 	}
 }
