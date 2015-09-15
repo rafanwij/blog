@@ -34,7 +34,7 @@ class dashboard extends CI_Controller {
 					for($i=0;$i<$result->num_rows();$i++){
 						$content = substr($result->row($i)->postContent, 0,400).'...';
 						$baseUrl = base_url().'index.php/dashboard/delete/'.$result->row($i)->postId;
-						$text = $text.'<h2>'.$result->row($i)->postTitle.'</h2><hr>'.$content.'</p><a class="btn btn-primary" href="'.$baseUrl.'">Read More <span class="glyphicon glyphicon-chevron-right"></span></a><hr>';
+						$text = $text.'<h2>'.$result->row($i)->postTitle.'</h2><hr>'.$content.'</p><button class="btn btn-danger" data-href="'.$baseUrl.'" data-toggle="modal" data-target="#confirm-delete">Delete <span class="glyphicon glyphicon glyphicon-remove"></span></button><hr>';
 					}
 					$msg['text'] = $text;
 
@@ -78,7 +78,7 @@ class dashboard extends CI_Controller {
 		for($i=0;$i<$result->num_rows();$i++){
 			$content = substr($result->row($i)->postContent, 0,400).'...';
 			$baseUrl = base_url().'index.php/dashboard/delete/'.$result->row($i)->postId;
-			$text = $text.'<h2>'.$result->row($i)->postTitle.'</h2><hr>'.$content.'</p><a class="btn btn-primary" href="'.$baseUrl.'">Read More <span class="glyphicon glyphicon-chevron-right"></span></a><hr>';
+			$text = $text.'<h2>'.$result->row($i)->postTitle.'</h2><hr>'.$content.'</p><button class="btn btn-danger" data-href="'.$baseUrl.'" data-toggle="modal" data-target="#confirm-delete">Delete <span class="glyphicon glyphicon glyphicon-remove"></span></button><hr>';
 		}
 		$msg['text'] = $text;
 		$sumPage = $this->session->userdata('sumPage');
@@ -115,7 +115,7 @@ class dashboard extends CI_Controller {
 		for($i=0;$i<$result->num_rows();$i++){
 			$content = substr($result->row($i)->postContent, 0,400).'...';
 			$baseUrl = base_url().'index.php/dashboard/delete/'.$result->row($i)->postId;
-			$text = $text.'<h2>'.$result->row($i)->postTitle.'</h2><hr>'.$content.'</p><a class="btn btn-primary" href="'.$baseUrl.'">Read More <span class="glyphicon glyphicon-chevron-right"></span></a><hr>';
+			$text = $text.'<h2>'.$result->row($i)->postTitle.'</h2><hr>'.$content.'</p><button class="btn btn-danger" data-href="'.$baseUrl.'" data-toggle="modal" data-target="#confirm-delete">Delete <span class="glyphicon glyphicon glyphicon-remove"></span></button><hr>';
 		}
 		$msg['text'] = $text;
 		$sumPage = $this->session->userdata('sumPage');
