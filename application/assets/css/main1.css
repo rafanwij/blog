@@ -1,0 +1,554 @@
+#imageSlider, #curtain
+{
+	width:100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.01);
+	float: none;
+	padding-left: 2em;
+	padding-right: 2em;
+	display: inline-block;
+}
+a:hover
+{
+	animation:none;
+	color:#fff;
+	text-decoration: none;
+}
+#holder
+{
+	display: flex;
+}
+#contactInfo,#mapHolder
+{
+	text-align: left;
+	font-size: large; 
+	width:50%;
+}
+#mapHolder
+{
+	padding-left: 5%;
+}
+#mapCanvas
+{
+	width: 95%;
+	height:300px;
+}
+#menu ul li:hover
+{
+	background-color: RGBA(1,1,1,0.3);
+	padding-left: 1em;
+}
+#formChef
+{
+	display: none;
+	position:absolute;
+	float: right;
+	margin-top:-18em;
+	margin-left:23em;
+	max-width: 15%;
+}
+#sendButton
+{
+	width:95%; 
+	float:left;
+}
+#resetButton
+{
+	width:95%; 
+	float: right;
+}
+#logo
+{
+	max-width: 30%;
+	resize: both;
+}
+.chef
+{
+	max-width: 10%;
+	resize:both;
+}
+#sideChef
+{
+	position: absolute;
+	float: right;
+	margin-left: 2.5%;
+	max-width: 15%;
+	margin-top: 22%;
+}
+#curtain
+{
+	background-image: url("images/curtain.jpg");
+	padding: 0;
+	opacity: 0;
+	position: absolute;
+	height: 164px;
+	margin-top:-8px;
+	animation-name:curtainAnimation;
+	animation-timing-function: ease-out;
+	animation-duration:3s;
+	animation-iteration-count:1;
+}
+
+@keyframes curtainAnimation
+{
+	from
+	{
+		display: block;
+		width: 100;
+		left:0;
+		opacity: 1;
+	}
+	to
+	{
+		display: block;
+		width: 0%;
+		left: 100%;
+		opacity: 1;
+	}
+}
+
+.images
+{
+	resize:both;
+	margin-right: 2em;
+	margin-top:10px;
+	margin-bottom:10px;
+	max-height: 130px;
+	max-width: 184px;
+	float:left;
+}
+#promoImage
+{
+	max-width: 80%;
+	animation-name:fer;
+	animation-timing-function: ease-out;
+	animation-duration:3s;
+}
+#contact
+{	
+	margin-top: 1em;	
+	text-align: center;
+	max-width: 50%;
+	margin: 0 auto;
+}
+
+.c11
+{
+	width: 50%;
+	float:  left;
+}
+.faq
+{
+	background-image: url("images/paper.jpg");
+			background-repeat: no-repeat;
+			color: #333;
+}
+.answer
+{
+	font-size: 14px;
+
+}
+.rata-kanan
+{
+	float:left;
+}
+
+.topMenu:hover
+{
+	background-color: #777;
+}
+
+#question
+{
+	margin-top: 0;
+}
+/* buat button rata kanan
+.c11
+{
+	float: right;
+}*/
+
+.notYet
+{
+	animation: none !important;
+	opacity: 0;
+}
+
+@keyframes fer
+{
+	from
+	{
+		opacity:0;
+	}
+	to
+	{
+		opacity:1;
+	}
+}
+
+#vision, #mission
+{
+	position: relative;
+	left:0;
+	top:0;
+	animation: visionAnimation 2.5s ease-out;
+}
+@keyframes visionAnimation
+{
+	from
+	{
+		top:100px;
+		opacity: 0;
+	}
+	to
+	{
+		top:0;
+		opacity: 1;
+	}
+}
+@media screen and (max-width: 1050px){
+	#men{
+		display:none;
+	}
+}
+@media screen and (min-width: 1050px){
+	#nav{
+		display:none;
+	}
+}
+
+@media screen and (max-width: 1043px)
+{
+
+	#curtain
+	{
+		height: 315px;
+	}
+}
+
+@media screen and (max-width: 1128px)
+{
+	.images
+	{
+		float: none;
+	}
+	#vision, #mission
+	{
+		animation-name: block;
+		opacity: 1;
+	}
+	#formChef
+	{
+		margin-left:20em;
+	}
+	
+}
+
+@media screen and (max-width: 1290px)
+{
+	#box
+	{
+		width: 75% !important;
+	}
+	
+}
+
+@media screen and (max-width: 1220px)
+{
+	#box1
+	{
+		width:65% !important;
+	}
+}
+
+@media screen and (max-width: 1160px)
+{
+	#box
+	{
+		width: 70% !important;
+	}	
+	#box1
+	{
+		width:78% !important;
+	}
+}
+
+@media screen and (max-width: 980px)
+{
+	#box
+	{
+		width: 83% !important;
+	}	
+	#img1
+	{	
+		width: 140px !important;
+		height: 140px !important;
+	}
+	
+	.namaAlbum p
+	{			
+		top:70px !important;   
+	   width: 150px !important;	  
+	   background-color: rgba(255,255,255,0.7) !important;
+	   font-size: 1em !important;
+	}
+}
+
+
+@media screen and (max-width: 920px)
+{
+	#box
+	{
+		width: 60% !important;
+	}	
+
+}
+
+@media screen and (max-width: 850px)
+{
+	#box1
+	{
+		width: 90% !important;
+	}
+	#box
+	{
+		width: 65% !important;
+	}
+	#img1
+	{	
+		width: 140px !important;
+		height: 140px !important;
+	}
+	
+	.namaAlbum p
+	{			
+		top:70px !important;   
+	   width: 150px !important;	  
+	   background-color: rgba(255,255,255,0.7) !important;
+	   font-size: 1em !important;
+	}
+}
+
+@media screen and (max-width: 790px)
+{
+	#box
+	{
+		width: 70% !important;
+	}
+}
+
+@media screen and (max-width: 700px)
+{
+	
+	#box
+	{
+		width: 80% !important;
+	}
+	#img1
+	{	
+		width: 120px !important;
+		height: 120px !important;
+	}
+	.namaAlbum p
+	{			
+		top:50px !important;   	
+	   width: 120px !important;	  
+	   background-color: rgba(255,255,255,0.7) !important;
+	   font-size: 1em !important;
+	}
+}
+
+@media screen and (max-width: 620px)
+{
+	#box1
+	{
+		width: 40% !important;
+	}
+	#box
+	{
+		width: 40% !important;
+	}
+
+}
+
+@media screen and (max-width: 450px)
+{
+	#box
+	{
+		width: 70% !important;
+	}
+	#box1
+	{
+		width: 53% !important;
+	}
+	#bacalanjut
+	{
+		font-size: 0.7em !important;
+	}
+	#nama-kelas
+	{
+		font-size: 0.8em !important;
+	}
+}
+
+@media screen and (max-width: 360px)
+{
+	#box
+	{
+		width: 88% !important;
+	}
+	#box1
+	{
+		width: 70% !important;
+	}
+	#judul
+	{
+		font-size: 0.7em !important;
+	}
+}
+
+@media screen and (max-width: 736px)
+{
+	
+	#holder
+	{
+		display: block;
+	}
+	#contactInfo
+	{
+		width: 100%;
+	}
+	#mapHolder
+	{
+		width: 100%;
+	}
+	#formChef
+	{
+		display:none;
+	}
+	#logo
+	{
+		max-width: 80%;
+	}
+	.chef
+	{
+		max-width: 20%;
+	}
+	#sideChef
+	{
+		display:none;
+	}
+	#imageSlider, #curtain
+	{
+		padding-left: 1em;
+		padding-right: 1em;
+		height: 100%;
+		display: inline-block;
+	}
+	#curtain
+	{
+		height: 316px;
+		margin-top:-16px;
+	}
+	/*#image3
+	{
+		margin-right: 0;
+	}*/
+	#promoImage,#vision, #mission,#curtain
+	{
+		animation-name : block;
+	}
+	#contact
+	{	
+	margin-top: 1em;	
+	text-align: center;
+	max-width: 80%;
+	margin: 0 auto;
+	}
+	.c11
+	{
+	width: 100%;
+	margin-top: 1em;
+	float:  left;
+	}
+	#sendButton, #resetButton
+	{
+		width: 100%;
+	}
+	
+}
+
+.program-title li p,.program-title li blockquote, .program-title li table, .program-title li ol li, .program-title li ul li{ font-weight: normal; }
+
+.album:hover a img
+{	
+	opacity: 0.5;
+}
+
+.album
+{
+	position: relative;
+}
+
+.namaAlbum p
+{
+	position: absolute;
+   top:90px;
+   left: 0;
+   width: 100%;
+   margin: 0 auto;
+   width: 210px;
+   height: 30px;
+   background-color: rgba(255,255,255,0.5);
+   font-size: 1.5em;
+   vertical-align: middle;
+}
+
+#tamp1
+{
+	width:100% !important;
+}
+
+#box1
+{
+	width:60%;
+	padding-bottom:20px; 
+	margin: 0px auto;
+}
+
+#img1
+{
+	margin:20px; 
+	width:200px;
+	height:200px;
+	overflow: hidden;
+	display:inline-block;
+	text-align:center; 
+	border:1px dotted #CCC; 
+	background-color:#efefef; 
+	border-radius:5px; 
+}
+
+#tamp
+{
+	width: 100% !important;
+	display: inline-block;
+}
+
+#box
+{
+	width:85%;
+	padding-bottom:20px; 
+	margin:0 auto;
+}
+
+#img
+{
+	background-color: transparent !important;	
+}
+
+#img img
+{
+	max-width: 190% !important;
+	max-height: 200% !important;
+}

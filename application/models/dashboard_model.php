@@ -19,4 +19,8 @@ class dashboard_model extends CI_Model
 			return $query;		
 		else return false;
 	}
+	function deleteData($postId){
+		$query = $this->db->query("UPDATE post SET postActivity = 'I' WHERE postId =  ".$postId."");
+		return $query;
+	}
 }

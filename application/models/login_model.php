@@ -9,7 +9,7 @@ class login_model extends CI_Model
 
 	function login($username,$password){
 		//account status A = active , I = inactive
-		$query = $this->db->query("SELECT * FROM msUser WHERE username = '".$username."' 
+		$query = $this->db->query("SELECT * FROM msuser WHERE username = '".$username."' 
 			AND password = '".$password."' AND status = 'A'");
 		if ($query != null && $query->num_rows() > 0) 
 			return $query;		
