@@ -14,8 +14,8 @@ class blogpost extends CI_Controller {
 		if($this->session->userdata('username') != null && $this->session->userdata('username') !="")
 		{	 
 			$text='';
-			$this->load->model('dashboard_model','dashboard');
-				$query = $this->dashboard->countPage();
+			$this->load->model('blogpost_model','blogpost');
+				$query = $this->blogpost->countPage();
 				if($query != false){
 					$sumRow = $query->num_rows();
 					$sumPage = ceil($sumRow / 3);
@@ -29,7 +29,7 @@ class blogpost extends CI_Controller {
 					$currentPage = $this->session->userdata('currentPage');
 					$item_perPage = 3;
 					$position = $currentPage*$item_perPage;
-					$result = $this->dashboard->getData($position,$item_perPage);
+					$result = $this->blogpost->getData($position,$item_perPage);
 					
 					for($i=0;$i<$result->num_rows();$i++){
 						$content = substr($result->row($i)->postContent, 0,300).'...';
@@ -84,7 +84,7 @@ class blogpost extends CI_Controller {
 	}
 	public function older(){
 		$text='';
-		$this->load->model('dashboard_model','dashboard');
+		$this->load->model('blogpost_model','blogpost');
 		$currentPage = $this->session->userdata('currentPage')+1;
 		if($currentPage+1 > $this->session->userdata('sumPage')){
 			$currentPage=$currentPage-1;
@@ -92,7 +92,7 @@ class blogpost extends CI_Controller {
 		$this->session->set_userdata('currentPage',$currentPage);
 		$item_perPage = 3;
 		$position = $currentPage*$item_perPage;
-		$result = $this->dashboard->getData($position,$item_perPage);
+		$result = $this->blogpost->getData($position,$item_perPage);
 
 		for($i=0;$i<$result->num_rows();$i++){
 			$content = substr($result->row($i)->postContent, 0,300).'...';
@@ -140,7 +140,7 @@ class blogpost extends CI_Controller {
 
 	public function newer(){
 		$text='';
-		$this->load->model('dashboard_model','dashboard');
+		$this->load->model('blogpost_model','blogpost');
 		$currentPage = $this->session->userdata('currentPage')-1;
 		if($currentPage < 0){
 			$currentPage=0;
@@ -148,7 +148,7 @@ class blogpost extends CI_Controller {
 		$this->session->set_userdata('currentPage',$currentPage);
 		$item_perPage = 3;
 		$position = $currentPage*$item_perPage;
-		$result = $this->dashboard->getData($position,$item_perPage);
+		$result = $this->blogpost->getData($position,$item_perPage);
 
 		for($i=0;$i<$result->num_rows();$i++)	{
 			$content = substr($result->row($i)->postContent, 0,300).'...';
@@ -197,8 +197,8 @@ class blogpost extends CI_Controller {
 
 	public function detail($postId)
 	{
-		$this->load->model('dashboard_model','dashboard');
-		$result=$this->dashboard->getDetailPost($postId);
+		$this->load->model('blogpost_model','blogpost');
+		$result=$this->blogpost->getDetailPost($postId);
 		$detail['title']=$result->row()->postTitle;
 		$detail['content']=$result->row()->postContent;
 		$detail['date']=$result->row()->postDate;
