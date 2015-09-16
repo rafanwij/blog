@@ -10,6 +10,7 @@ class dashboard extends CI_Controller {
 		$msg['previous'] = 'style="visibility:hidden;"';
 		$msg['next']='style="visibility:hidden;"';
 		$msg['page']='';
+		$msg['currentPage']=0;
 
 		if($this->session->userdata('username') != null && $this->session->userdata('username') !="")
 		{	 
@@ -63,6 +64,46 @@ class dashboard extends CI_Controller {
 			redirect('/login','refresh');
 		}
 	}
+	public function loadPost()
+	{
+		//created by FS 16 Sept
+		$text='';
+		$this->load->model('dashboard_model','dashboard');
+		$currentPage = $this->uri->segment(3);
+		// if($currentPage+1 > $this->session->userdata('sumPage')){
+		// 	$currentPage=$currentPage;
+		// }
+		$this->session->set_userdata('currentPage',$currentPage);
+		$item_perPage = 3;
+		$position = $currentPage*$item_perPage;
+		$result = $this->dashboard->getData($position,$item_perPage);
+
+		for($i=0;$i<$result->num_rows();$i++){
+			$content = substr($result->row($i)->postContent, 0,400).'...';
+			$baseUrl = base_url().'index.php/dashboard/delete/'.$result->row($i)->postId;
+			$text = $text.'<h2>'.$result->row($i)->postTitle.'</h2><hr>'.$content.'</p><button class="btn btn-danger" data-href="'.$baseUrl.'" data-toggle="modal" data-target="#confirm-delete">Delete <span class="glyphicon glyphicon glyphicon-remove"></span></button><hr>';
+		}
+		$msg['text'] = $text;
+		$sumPage = $this->session->userdata('sumPage');
+		$page = $currentPage+1;
+		$msg['page'] = $page.' of '.$sumPage;
+		$msg['currentPage'] = $currentPage;
+
+		if($currentPage == 0){
+			$msg['previous'] = 'style="visibility:hidden;"';
+		}
+		else{
+			$msg['previous'] = '';
+		}
+		if($currentPage+1 >= $sumPage){
+			$msg['next'] = 'style="visibility:hidden;"';
+		}
+		else{
+			$msg['next'] = '';
+		}
+		$this->load->view('dashboard_view',$msg);
+	}
+	//marked as obsolete by FS 16 Sept
 	public function older(){
 		$text='';
 		$this->load->model('dashboard_model','dashboard');
@@ -99,7 +140,7 @@ class dashboard extends CI_Controller {
 		}
 		$this->load->view('dashboard_view',$msg);
 	}
-
+	//marked as obsolete by FS 16 Sept
 	public function newer(){
 		$text='';
 		$this->load->model('dashboard_model','dashboard');

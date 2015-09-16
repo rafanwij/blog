@@ -65,14 +65,15 @@
 										<div class="col-md-10 col-sm-10 col-xs-10" style="text-align:start;height:150px;vertical-align:bottom;display:table-cell;">
 											
 											<ul class="post-meta pager">
+											<!-- modified by FS 16 Sept -->
 												<li class="previous" <?php echo $previous; ?> >
-		                                            <a href="<?php echo base_url();?>index.php/blogpost/newer">&larr; Newer</a>
+		                                            <a href="<?php echo base_url();?>index.php/blogpost/loadPost/<?php echo $currentPage-1; ?>">&larr; Newer</a>
 		                                        </li>
 		                                        <li>
 		                                            <?php echo $page; ?>
 		                                        </li>
 		                                        <li class="next" <?php echo $next; ?> >
-		                                            <a href="<?php echo base_url();?>index.php/blogpost/older">Older &rarr;</a>
+		                                            <a href="<?php echo base_url();?>index.php/blogpost/loadPost/<?php echo $currentPage+1; ?>">Older &rarr;</a>
 		                                        </li>
 											</ul>
 										</div>

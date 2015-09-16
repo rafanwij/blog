@@ -82,6 +82,65 @@ class blogpost extends CI_Controller {
 			redirect('/login','refresh');
 		}
 	}
+	public function loadPost()
+	{
+		//created by FS 16 Sept
+		$text='';
+		$this->load->model('blogpost_model','blogpost');
+		$currentPage = $this->uri->segment(3);
+		// if($currentPage+1 > $this->session->userdata('sumPage')){
+		// 	$currentPage=$currentPage-1;
+		// }
+		$this->session->set_userdata('currentPage',$currentPage);
+		$item_perPage = 3;
+		$position = $currentPage*$item_perPage;
+		$result = $this->blogpost->getData($position,$item_perPage);
+
+		for($i=0;$i<$result->num_rows();$i++){
+			$content = substr($result->row($i)->postContent, 0,300).'...';
+			$detailUrl = base_url().'index.php/blogpost/detail/'.$result->row($i)->postId;
+			$picUrl=base_url().'application/assets/pic/chef07.png';
+			$date = $result->row()->postDate;
+			$Date = date("d M Y", strtotime($date));
+			$text = $text.'<div class="blog-post image-post" style="display:block;">
+	<div class="post-head" style="float:left;">		
+			<img alt="" src="'.$picUrl.'">		
+	</div>
+	<!-- Post Content -->
+	<div class="post-content">
+		<div style="inline-block;margin-top:3.5em;">
+			<div id="postContent1" class="col-md-10 col-sm-10 col-xs-10" style="text-align:start;height:150px;vertical-align:bottom;display:table-cell;">
+				<h2><a href="#">'.$result->row($i)->postTitle.'</a></h2>
+				<ul class="post-meta">
+					<li>'.$Date.'</li>
+				</ul>
+				</div>
+		</div>
+		<p style="margin-top:0.5em;">'.$content.'</p>
+		<a class="main-button" style="float:right;" href="'.$detailUrl.'">Read More <i class="fa fa-angle-right"></i></a>
+	</div>';
+		}
+		$msg['text'] = $text;
+		$sumPage = $this->session->userdata('sumPage');
+		$page = $currentPage+1;
+		$msg['page'] = $page.' of '.$sumPage;
+		$msg['currentPage']=$currentPage;
+
+		if($currentPage == 0){
+			$msg['previous'] = 'style="visibility:hidden;"';
+		}
+		else{
+			$msg['previous'] = '';
+		}
+		if($currentPage+1 >= $sumPage){
+			$msg['next'] = 'style="visibility:hidden;"';
+		}
+		else{
+			$msg['next'] = '';
+		}
+		$this->load->view('blogpost_view',$msg);
+	}
+	//marked as obsolete by FS 16 Sept
 	public function older(){
 		$text='';
 		$this->load->model('blogpost_model','blogpost');
@@ -137,7 +196,7 @@ class blogpost extends CI_Controller {
 		}
 		$this->load->view('blogpost_view',$msg);
 	}
-
+	//marked as obsolete by FS 16 Sept
 	public function newer(){
 		$text='';
 		$this->load->model('blogpost_model','blogpost');

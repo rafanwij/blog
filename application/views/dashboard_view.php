@@ -110,14 +110,15 @@
                                     <!-- Pager -->
                                     <?php echo $text; ?>
                                     <ul class="pager">
+                                    <!-- modified by FS 16 Sept -->
                                         <li class="previous" <?php echo $previous; ?> >
-                                            <a href="<?php echo base_url();?>index.php/dashboard/newer">&larr; Newer</a>
+                                            <a href="<?php echo base_url();?>index.php/dashboard/loadPost/<?php echo $currentPage-1; ?>">&larr; Newer</a>
                                         </li>
                                         <li>
                                             <?php echo $page; ?>
                                         </li>
                                         <li class="next" <?php echo $next; ?> >
-                                            <a href="<?php echo base_url();?>index.php/dashboard/older">Older &rarr;</a>
+                                            <a href="<?php echo base_url();?>index.php/dashboard/loadPost/<?php echo $currentPage+1; ?>">Older &rarr;</a>
                                         </li>
                                     </ul>
                                 </div>
