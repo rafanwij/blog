@@ -1,34 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Create Post</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="<?php echo base_url();?>application/assets/css/bootstrap.min.css" rel="stylesheet">
+	<title>Edit</title>
+	<link href="<?php echo base_url();?>application/assets/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="<?php echo base_url();?>application/assets/css/sidebar.css" rel="stylesheet">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
 </head>
-
 <body>
-
-    <div id="wrapper">
+<div id="wrapper">
 
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
@@ -56,13 +36,13 @@
                             <div class="row">
                                 <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
                                 <div class="col-md-10">
-                                    <?php echo form_open_multipart('createpost/createPost'); ?>
+                                    <?php echo form_open('edit/save'); ?>
                                         <div class="form-group">
                                             <label for="name" class="col-sm-2 control-label">Title</label>
                                             <div class="col-sm-10">
                                                 <?php 
-                                                 $opts = 'class="form-control" placeholder="Title" id="title"';
-                                                 echo form_input('title', '', $opts); 
+                                                 $opts = 'class="form-control" id="title"';
+                                                 echo form_input('title', $title, $opts);
                                                 ?>
                                             </div>
                                         </div>
@@ -70,24 +50,16 @@
                                             <label for="message" class="col-sm-2 control-label">Content</label>
                                             <div class="col-sm-10">
                                                 <?php 
-                                                    $opts = 'class="form-control" placeholder="Content" rows="4" id="content"';
-                                                    echo form_textarea('content','', $opts);
+                                                    $opts = 'class="form-control" rows="4" id="content"';
+                                                    echo form_textarea('content',$content, $opts);
                                                  ?>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="message" class="col-sm-2 control-label">Image</label>
-                                            <div class="col-sm-10">
-                                                <input type="file" name="userfile" size="20"/>
-                                            </div>
-                                        </div>
-
-
+                                        <?php echo form_hidden('postId',$id); ?>
                                         <div class="form-group">
                                             <div class="col-sm-5 col-sm-offset-2">
                                                 <?php echo form_submit('submit','Submit',"class='btn btn-info btn-block login' style='background-color:#5bc0de; margin-top:10px;'"); ?>
                                                 <p id="err" style="margin-top:10px;"></p>
-                                                <?php echo $err; ?>
                                             </div>
                                         </div>
                                     </form>
@@ -98,7 +70,8 @@
                 </div>
              </div>
     </div>
-    <!-- /#wrapper -->
+
+        <!-- /#wrapper -->
 
     <!-- jQuery -->
     <script src="<?php echo base_url();?>application/assets/js/jquery.js"></script>
@@ -127,5 +100,4 @@
     </script>
 
 </body>
-
 </html>

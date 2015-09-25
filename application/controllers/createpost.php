@@ -10,7 +10,8 @@ class createpost extends CI_Controller {
 	{
 		if($this->session->userdata('username') != null && $this->session->userdata('username') !="")
 		{
-			$this->load->view('createpost_view');
+			$error['err'] = '';
+			$this->load->view('createpost_view',$error);
 		}
 		else{
 			redirect('/login','refresh');
@@ -21,12 +22,22 @@ class createpost extends CI_Controller {
 		{
 			$title = $this->input->post('title');
 			$content = $this->input->post('content');
-			$imagePath = '';
-			
-			$this->load->model('createpost_model','createpost');
-			$query = $this->createpost->createpost($title,$content,$imagePath);
-			$this->session->set_userdata('currentPage',0);
-			redirect('/dashboard','refresh');
+			//image config
+			$config['upload_path'] = './upload/';
+			$config['allowed_types']='gif|jpg|jpeg|png';
+			$this->load->library('upload',$config);
+			$this->upload->do_upload();
+			$data =  $this->upload->data();
+			$error['err'] = $this->upload->display_errors();
+			if(!$this->upload->do_upload()){			
+					$this->load->view('createpost_view',$error);
+			}else{
+				$imagePath = $data['full_path'];
+				$this->load->model('createpost_model','createpost');
+				$query = $this->createpost->createpost($title,$content,$imagePath);
+				$this->session->set_userdata('currentPage',0);
+				redirect('/dashboard','refresh');
+			}			
 		}
 		else{
 			redirect('/login','refresh');
