@@ -40,7 +40,7 @@ class blogpost extends CI_Controller {
 	if($result->row($i)->imagePath)
 	{
 		$text=$text.'<div class="post-head" style="float:left;">		
-				<img alt="" src="'.$picUrl.'" style="margin-right:2em;">		
+				<img alt="" src="'.$picUrl.'" style="margin-right:2em;max-width:98%;">		
 		</div>';
 	}
 	$text=$text.'<!-- Post Content -->

@@ -77,7 +77,7 @@
 													</ul>
 												<!-- </div> -->
 											</div>
-											<p><?php echo $content ?></p>
+											<p style="margin-right:1em;"><?php echo $content ?></p>
 											
 										</div>
 									</div>
