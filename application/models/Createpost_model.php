@@ -9,7 +9,8 @@ class createpost_model extends CI_Model
 
 	function createPost($title,$content,$imagePath){
 		//account status A = active , I = inactive
-		$query = $this->db->query("INSERT INTO post VALUES ('','".$title."','".$content."',now(),'".$imagePath."','A')");
+		$queryString = "INSERT INTO post VALUES ('',?,?,now(),?,'A')";
+		$query = $this->db->query($queryString,array($title,$content,$imagePath));
 		return $query;		
 	}
 }
