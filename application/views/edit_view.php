@@ -97,7 +97,7 @@
     });
     $('form').submit(function () {
         var title = $('#title').val();
-        var content = $('#content').val();
+        var content = tinyMCE.get('content').getContent();
         var image = $('#userfile').val();
         if (title  === '') {
             $('#err').text("Title must be filled.");

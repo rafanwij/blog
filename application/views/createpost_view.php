@@ -110,7 +110,8 @@
     <!-- Menu Toggle Script -->
     <script>
     tinymce.init({
-        selector: "#content"
+        selector: "#content",
+        theme: "modern"
     });
     $("#menu-toggle").click(function(e) {
         e.preventDefault();
@@ -118,7 +119,7 @@
     });
     $('form').submit(function () {
         var title = $('#title').val();
-        var content = $('#content').val();
+        var content = tinyMCE.get('content').getContent();
         if (title  === '') {
             $('#err').text("Title must be filled.");
             return false;
