@@ -119,9 +119,6 @@
     $('form').submit(function () {
         var title = $('#title').val();
         var content = $('#content').val();
-        var image = $('#userfile').val();
-        var extension = image.split('.').pop().toUpperCase();
-        var file_size = $('#userfile')[0].files[0].size;
         if (title  === '') {
             $('#err').text("Title must be filled.");
             return false;
@@ -130,13 +127,19 @@
             $('#err').text("Content must be filled.");
             return false;
         }
-        else if(image.length < 1) {
+        
+        var image = $('#userfile').val();
+        if(image ==''|| !image) {
             check = 0;
             $('#err').text('Please upload image.');
+            return false;
         }
-        else if (extension!="PNG" && extension!="JPG" && extension!="GIF" && extension!="JPEG"){
+        var extension = image.split('.').pop().toUpperCase();
+        var file_size = $('#userfile')[0].files[0].size;
+        if (extension!="PNG" && extension!="JPG" && extension!="GIF" && extension!="JPEG"){
             check = 0;
             $('#err').text("invalid extension "+extension);
+            return false;
         }else if(file_size>510000) {
             $('#err').text('File size is greater than 2MB');
             return false; 
@@ -144,7 +147,6 @@
         else {
             check = 1;
         }
-
         if(check == 1) {
             $('form').submit();
         }
@@ -152,6 +154,7 @@
             $('.formValidation').addClass("validationError");
         }
         return false;
+        
     });
     </script>
 
