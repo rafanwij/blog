@@ -102,12 +102,16 @@
 
     <!-- jQuery -->
     <script src="<?php echo base_url();?>application/assets/js/jquery.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>application/assets/js/tinymce/tinymce.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="<?php echo base_url();?>application/assets/js/bootstrap.min.js"></script>
 
     <!-- Menu Toggle Script -->
     <script>
+    tinymce.init({
+        selector: "#content"
+    });
     $("#menu-toggle").click(function(e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
