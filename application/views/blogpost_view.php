@@ -70,7 +70,7 @@
 		                                            <a href="<?php echo base_url();?>index.php/blogpost/loadPost/<?php echo $currentPage-1; ?>">&larr; Newer</a>
 		                                        </li>
 		                                        <li>
-		                                            <?php echo $page; ?>
+		                                            <?php echo $page;?>
 		                                        </li>
 		                                        <li class="next" <?php echo $next; ?> >
 		                                            <a href="<?php echo base_url();?>index.php/blogpost/loadPost/<?php echo $currentPage+1; ?>">Older &rarr;</a>

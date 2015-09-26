@@ -34,18 +34,20 @@ class blogpost extends CI_Controller {
 					for($i=0;$i<$result->num_rows();$i++){
 						$content = substr($result->row($i)->postContent, 0,300).'...';
 						$detailUrl = base_url().'index.php/blogpost/detail/'.$result->row($i)->postId;
-						$picUrl= base_url().'application/assets/pic/chef07.png';
-						$date = $result->row()->postDate;
-						$Date = date("d M Y", strtotime($date));
-						$text = $text.'<div class="blog-post image-post" style="display:block;">
-	<div class="post-head" style="float:left;">		
-			<img alt="" src="'.$picUrl.'">		
-	</div>
-	<!-- Post Content -->
+						$picUrl= base_url().'upload/'.$result->row($i)->imagePath;						
+						$Date = date("d M Y", strtotime($result->row()->postDate));
+						$text = $text.'<div class="blog-post image-post" style="display:block;">';
+	if($result->row($i)->imagePath)
+	{
+		$text=$text.'<div class="post-head" style="float:left;">		
+				<img alt="" src="'.$picUrl.'" style="margin-right:2em;">		
+		</div>';
+	}
+	$text=$text.'<!-- Post Content -->
 	<div class="post-content">
 		<div style="inline-block;margin-top:3.5em;">
 			<div id="postContent1" class="col-md-10 col-sm-10 col-xs-10" style="text-align:start;height:150px;vertical-align:bottom;display:table-cell;">
-				<h2><a href="#">'.$result->row($i)->postTitle.'</a></h2>
+				<h2><a href="'.$detailUrl.'">'.$result->row($i)->postTitle.'</a></h2>
 				<ul class="post-meta">
 					<li>'.$Date.'</li>
 				</ul>
@@ -76,6 +78,7 @@ class blogpost extends CI_Controller {
 				else{
 					$msg['text']="No data avaiable";
 				}
+				$msg['currentPage']=$currentPage;
 			$this->load->view('blogpost_view',$msg);
 		}
 		else{
@@ -99,18 +102,21 @@ class blogpost extends CI_Controller {
 		for($i=0;$i<$result->num_rows();$i++){
 			$content = substr($result->row($i)->postContent, 0,300).'...';
 			$detailUrl = base_url().'index.php/blogpost/detail/'.$result->row($i)->postId;
-			$picUrl=base_url().'application/assets/pic/chef07.png';
-			$date = $result->row()->postDate;
-			$Date = date("d M Y", strtotime($date));
-			$text = $text.'<div class="blog-post image-post" style="display:block;">
-	<div class="post-head" style="float:left;">		
-			<img alt="" src="'.$picUrl.'">		
-	</div>
-	<!-- Post Content -->
+			$picUrl= base_url().'upload/'.$result->row($i)->imagePath;			
+			$Date = date("d M Y", strtotime($result->row()->postDate));
+			$text = $text.'<div class="blog-post image-post" style="display:block;">';
+			if($result->row($i)->imagePath!="")
+			{
+				$text = $text.'<div class="post-head" style="float:left;">		
+				<img alt="" src="'.$picUrl.'" style="margin-right:2em;">		
+				</div>';
+			}
+	
+	$text=$text.'<!-- Post Content -->
 	<div class="post-content">
 		<div style="inline-block;margin-top:3.5em;">
 			<div id="postContent1" class="col-md-10 col-sm-10 col-xs-10" style="text-align:start;height:150px;vertical-align:bottom;display:table-cell;">
-				<h2><a href="#">'.$result->row($i)->postTitle.'</a></h2>
+				<h2><a href="'.$detailUrl.'">'.$result->row($i)->postTitle.'</a></h2>
 				<ul class="post-meta">
 					<li>'.$Date.'</li>
 				</ul>
@@ -146,7 +152,8 @@ class blogpost extends CI_Controller {
 		$result=$this->blogpost->getDetailPost($postId);
 		$detail['title']=$result->row()->postTitle;
 		$detail['content']=$result->row()->postContent;
-		$detail['date']=$result->row()->postDate;
+		$detail['date']=date("d M Y", strtotime($result->row()->postDate));
+		$detail['imagePath']="upload".$result->row()->imagePath;
 		$this->load->view('blogdetail_view',$detail);
 	}
 

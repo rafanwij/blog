@@ -62,9 +62,11 @@
 									<h1 id="blogTitle" style="line-height:0em;letter-spacing:0;font-weight:0;">Blog</h1>
 									<div class="blog-post image-post" style="display:block;margin-bottom:">
 										<!-- Post Thumb -->
+										<?php if($imagePath!="upload"){ ?>
 										<div class="post-head-detail">											
-											<img id="imgDetail" alt="" src="<?php echo base_url(); ?>application/assets/pic/coba.jpg">											
+											<img id="imgDetail" alt="" src="<?php echo base_url().$imagePath; ?>">											
 										</div>
+										<?php } ?>
 										<!-- Post Content -->
 										<div class="post-content" style="display:inline-block;">
 											<div>
