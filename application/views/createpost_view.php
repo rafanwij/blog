@@ -78,7 +78,7 @@
                                         <div class="form-group">
                                             <label for="message" class="col-sm-2 control-label">Image</label>
                                             <div class="col-sm-10">
-                                                <input type="file" name="userfile" size="20"/>
+                                                <input type="file" name="userfile" id="userfile" size="20"/>
                                             </div>
                                         </div>
 
@@ -115,6 +115,9 @@
     $('form').submit(function () {
         var title = $('#title').val();
         var content = $('#content').val();
+        var image = $('#userfile').val();
+        var extension = image.split('.').pop().toUpperCase();
+        var file_size = $('#userfile')[0].files[0].size;
         if (title  === '') {
             $('#err').text("Title must be filled.");
             return false;
@@ -123,6 +126,28 @@
             $('#err').text("Content must be filled.");
             return false;
         }
+        else if(image.length < 1) {
+            check = 0;
+            $('#err').text('Please upload image.');
+        }
+        else if (extension!="PNG" && extension!="JPG" && extension!="GIF" && extension!="JPEG"){
+            check = 0;
+            $('#err').text("invalid extension "+extension);
+        }else if(file_size>510000) {
+            $('#err').text('File size is greater than 2MB');
+            return false; 
+        }
+        else {
+            check = 1;
+        }
+
+        if(check == 1) {
+            $('form').submit();
+        }
+        else {
+            $('.formValidation').addClass("validationError");
+        }
+        return false;
     });
     </script>
 
