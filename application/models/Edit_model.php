@@ -9,6 +9,11 @@ class edit_model extends CI_Model {
 		else return false;
 	}
 	function updateData($postId,$postTitle,$postContent,$imagePath){
-		$query = $this->db->query("UPDATE post SET postTitle = '".$postTitle."', postContent = '".$postContent.$imagePath."' WHERE postId = '".$postId."'");
+		if($imagePath!=''){
+			$query = $this->db->query("UPDATE post SET postTitle = '".$postTitle."', postContent = '".$postContent."' , imagePath = '".$imagePath."' WHERE postId = '".$postId."'");
+		}
+		else{
+			$query = $this->db->query("UPDATE post SET postTitle = '".$postTitle."', postContent = '".$postContent."' WHERE postId = '".$postId."'");
+		}
 	}
 }

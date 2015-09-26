@@ -32,7 +32,7 @@ class createpost extends CI_Controller {
 			if(!$this->upload->do_upload()){			
 					$this->load->view('createpost_view',$error);
 			}else{
-				$imagePath = $data['full_path'];
+				$imagePath = 'upload/'.$data['file_name'];
 				$this->load->model('createpost_model','createpost');
 				$query = $this->createpost->createpost($title,$content,$imagePath);
 				$this->session->set_userdata('currentPage',0);

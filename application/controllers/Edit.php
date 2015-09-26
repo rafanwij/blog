@@ -23,11 +23,22 @@ class edit extends CI_Controller {
 	}
 	public function save(){
 		$imagePath="";
+		$imageName='';
 		$title = $this->input->post('title');
 		$content = $this->input->post('content');
 		$id = $this->input->post('postId');
-		if(!$imagePath || $imagePath== ''){
+		//image config
+		$config['upload_path'] = './upload/';
+		$config['allowed_types']='gif|jpg|jpeg|png';
+		$this->load->library('upload',$config);
+		$this->upload->do_upload();
+		$data =  $this->upload->data();
+		$imageName = $data['file_name'];
+		if(!$imageName || $imageName == ''){
 			$imagePath = '';
+		}
+		else{
+			$imagePath = 'upload/'.$data['file_name'];
 		}
 
 	$this->load->model('Edit_model','edit');

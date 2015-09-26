@@ -36,7 +36,7 @@
                             <div class="row">
                                 <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
                                 <div class="col-md-10">
-                                    <?php echo form_open('edit/save'); ?>
+                                    <?php echo form_open_multipart('edit/save'); ?>
                                         <div class="form-group">
                                             <label for="name" class="col-sm-2 control-label">Title</label>
                                             <div class="col-sm-10">
@@ -53,6 +53,12 @@
                                                     $opts = 'class="form-control" rows="4" id="content"';
                                                     echo form_textarea('content',$content, $opts);
                                                  ?>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="message" class="col-sm-2 control-label">Image</label>
+                                            <div class="col-sm-10">
+                                                <input type="file" name="userfile" size="20"/>
                                             </div>
                                         </div>
                                         <?php echo form_hidden('postId',$id); ?>
