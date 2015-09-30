@@ -10,8 +10,8 @@ class blogpost extends CI_Controller {
 		$msg['previous'] = 'style="visibility:hidden;"';
 		$msg['next']='style="visibility:hidden;"';
 		$msg['page']='';
-
-		if($this->session->userdata('username') != null && $this->session->userdata('username') !="")
+		//remove this validation
+		//if($this->session->userdata('username') != null && $this->session->userdata('username') !="")
 		{	 
 			$text='';
 			$this->load->model('blogpost_model','blogpost');
@@ -45,8 +45,8 @@ class blogpost extends CI_Controller {
 	}
 	$text=$text.'<!-- Post Content -->
 	<div class="post-content">
-		<div style="inline-block;margin-top:3.5em;">
-			<div id="postContent1" class="col-md-10 col-sm-10 col-xs-10" style="text-align:start;height:150px;vertical-align:bottom;display:table-cell;">
+		<div style="inline-block;margin-top:1em;">
+			<div id="postContent1" class="col-md-10 col-sm-10 col-xs-10" style="text-align:start;;height:130px;vertical-align:bottom;display:table-cell;">
 				<h2><a href="'.$detailUrl.'">'.$result->row($i)->postTitle.'</a></h2>
 				<ul class="post-meta">
 					<li>'.$Date.'</li>
@@ -81,9 +81,6 @@ class blogpost extends CI_Controller {
 				$msg['currentPage']=$currentPage;
 			$this->load->view('blogpost_view',$msg);
 		}
-		else{
-			redirect('/login','refresh');
-		}
 	}
 	public function loadPost()
 	{
@@ -115,7 +112,7 @@ class blogpost extends CI_Controller {
 	$text=$text.'<!-- Post Content -->
 	<div class="post-content">
 		<div style="inline-block;margin-top:3.5em;">
-			<div id="postContent1" class="col-md-10 col-sm-10 col-xs-10" style="text-align:start;height:150px;vertical-align:bottom;display:table-cell;">
+			<div id="postContent1" class="col-md-10 col-sm-10 col-xs-10" style="text-align:start;height:130px;vertical-align:bottom;display:table-cell;">
 				<h2><a href="'.$detailUrl.'">'.$result->row($i)->postTitle.'</a></h2>
 				<ul class="post-meta">
 					<li>'.$Date.'</li>

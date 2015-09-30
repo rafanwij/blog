@@ -4,6 +4,7 @@
 	html5up.net | @n33co
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
+<?php $mainWeb="http://localhost/icc/"; ?>
 <html>
 	<head>
 		<title>I-Cook Culinary Center</title>
@@ -12,9 +13,36 @@
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="<?php echo base_url(); ?>application/assets/css/main.css" />
 		<link rel="stylesheet" href="<?php echo base_url(); ?>application/assets/css/mainBlog.css" />
+		<link rel="stylesheet" type="text/css" href="<?php echo $mainWeb; ?>chat/main.css">
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>application/assets/css/main1.css">
+		<style>
+		::-webkit-input-placeholder {
+			color: rgba(128, 128, 128, 0.5) !important;
+			opacity: 1.0;
+		}
+
+		:-moz-placeholder {
+			color: rgba(128, 128, 128, 0.5) !important;
+			opacity: 1.0;
+		}
+
+		::-moz-placeholder {
+			color: rgba(128, 128, 128, 0.5) !important;
+			opacity: 1.0;
+		}
+
+		:-ms-input-placeholder {
+			color: rgba(128, 128, 128, 0.5) !important;
+			opacity: 1.0;
+		}
+
+		.formerize-placeholder {
+			color: rgba(128, 128, 128, 0.5) !important;
+			opacity: 1.0;
+		}
+		</style>
 	</head>
 	<body>
 
@@ -24,14 +52,15 @@
 				<!-- Header -->
 					<header id="header" style="background-image: url('<?php echo base_url(); ?>application/assets/pic/chalk.jpg')">
 						<div style="color: #fff;letter-spacing: 0.225em; margin: 0 1em 1em 1em;">
-									<a id="judul" href="index.html" style="float:left; font-weight:800">I-COOK CULINARY CENTER</a>
+									<a id="judul" href="<?php echo $mainWeb; ?>index.html" style="float:left; font-weight:800">I-COOK CULINARY CENTER</a>
 									<div id="men">
-									<a class="topMenu" href="contact.html" style="float:right; padding-left:0.5em; padding-right:0.5em; text-decoration:none;">Contact Us</a>
-									<a class="topMenu" href="faq.html" style="float:right; padding-left:0.5em; padding-right:0.5em;">FAQ</a>
-									<a class="topMenu" href="gallery.html" style="float:right; padding-left:0.5em; padding-right:0.5em;">Gallery</a>
-									<a class="topMenu" href="program.html" style="float:right; padding-left:0.5em; padding-right:0.5em;">Programs</a>
-									<a class="topMenu" href="about.html" style="float:right; padding-left:0.5em; padding-right:0.5em;">About Us</a>
-									<a class="topMenu" href="index.html" style="float:right; padding-left:0.5em; padding-right:0.5em;">Home</a>
+									<a class="topMenu" href="<?php echo $mainWeb; ?>contact.html" style="float:right; padding-left:0.5em; padding-right:0.5em; text-decoration:none;">Contact Us</a>
+									<a class="topMenu" href="<?php echo $mainWeb; ?>faq.html" style="float:right; padding-left:0.5em; padding-right:0.5em;">FAQ</a>
+									<a class="topMenu" href="<?php echo base_url(); ?>index.ph/blogpost/" style="float:right; padding-left:0.5em; padding-right:0.5em;">Blog</a>
+									<a class="topMenu" href="<?php echo $mainWeb; ?>gallery.html" style="float:right; padding-left:0.5em; padding-right:0.5em;">Gallery</a>
+									<a class="topMenu" href="<?php echo $mainWeb; ?>program.html" style="float:right; padding-left:0.5em; padding-right:0.5em;">Programs</a>
+									<a class="topMenu" href="<?php echo $mainWeb; ?>about.html" style="float:right; padding-left:0.5em; padding-right:0.5em;">About Us</a>
+									<a class="topMenu" href="<?php echo $mainWeb; ?>index.html" style="float:right; padding-left:0.5em; padding-right:0.5em;">Home</a>
 									</div>
 						</div>
 						
@@ -54,6 +83,17 @@
 						</nav>
 					</header>
 
+					<section id="banner">
+						<div class="inner">
+						<img src="<?php echo base_url(); ?>application/assets/pic/logo.png" id="logo">
+						<br>
+							<h2>I-Cook Culinary Center</h2>
+							<h3>Be Inspired To Cook</h3>
+							<h2>Blog</h2>							
+						</div>
+						<a href="#one" class="more scrolly"></a>
+					</section>
+
 					<section id="one" class="wrapper style1 special" style="padding-top:3em; padding-bottom:5em; background-image:url('<?php echo base_url();?>application/assets/pic/paper.jpg');">
 						<div class="inner">
 							<header class="major" style="margin-bottom:0.5em;width:100%;display:inline-block;">	
@@ -62,7 +102,7 @@
 									<h1 id="blogTitle" style="line-height:0em;letter-spacing:0;font-weight:0;">Blog</h1>
 									<?php echo $text ?>
 									<div style="inline-block;">
-										<div class="col-md-10 col-sm-10 col-xs-10" style="text-align:start;height:150px;vertical-align:bottom;display:table-cell;">
+										<div class="container" style="text-align:start;height:130px;vertical-align:bottom;display:table-cell;">
 											
 											<ul class="post-meta pager">
 											<!-- modified by FS 16 Sept -->
@@ -83,6 +123,41 @@
 						</div>
 					</section>
 
+					<div id="chat">
+						<img src="<?php echo $mainWeb; ?>chat/chat.png" id="imgChat" onclick="toggleChat(1)">
+						<div id="chatBox" style="display:none">
+							<img src="<?php echo $mainWeb; ?>chat/chatChef.png" id="chatChef" onclick="toggleMinimize()">
+							<div id="chatNav" onclick="toggleMinimize()">
+								<span style="float:left; margin-top:-0.3em; margin-left:0.3em; margin-bottom:-0.3em;">
+									Live Chat
+								</span>
+								<img src="<?php echo $mainWeb; ?>chat/close.png" id="btnClose" onclick="toggleChat(0)">
+								<img src="<?php echo $mainWeb; ?>chat/minimize.png" id="btnMinimize">
+							</div>
+							<div id="chatContainer">
+								<div id="chats" style="display:none">
+									<table id="chatTable">
+									</table>
+								</div>
+								<div id="register">
+									<div style="margin-left:0.5em"><span>Please tell us your information before you start chatting with us.</span></div>
+									<span class="error" id="errorMessage"></span>
+									<input class="form" type="text" id="txtUsername" placeholder="Username">
+									<input type="text" id="txtFullName" placeholder = "Full Name" class="form">
+									<input type="email" id="txtEmail" placeholder = "Email Address" class="form">
+									<input type="text" id="txtPhone" placeholder = "Phone Number" class="form">
+									<div id="btnSubmit" onclick="btnSubmitClick()">
+										Submit
+									</div>
+								</div>
+								<input type="text" id="txtChat" onkeydown="checkKey(event)" style="background-color:rgba(160,160,160,0.8)">
+								<div id="btnSend" onclick="btnSendClick()">
+									Send
+								</div>
+							</div>
+						</div>
+					</div>
+
 				
 				<!-- Footer -->
 					<footer id="footer" style="background-color:RGBA(0,0,0,0.5)">
@@ -101,13 +176,14 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
+			<script src="<?php echo base_url(); ?>application/assets/js/jquery.min.js"></script>
+			<script src="<?php echo base_url(); ?>application/assets/js/jquery.scrollex.min.js"></script>
+			<script src="<?php echo base_url(); ?>application/assets/js/jquery.scrolly.min.js"></script>
+			<script src="<?php echo base_url(); ?>application/assets/js/skel.min.js"></script>
+			<script src="<?php echo base_url(); ?>application/assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
+			<script src="<?php echo base_url(); ?>application/assets/js/main.js"></script>
+			<script type="text/javascript" src="<?php echo $mainWeb; ?>chat/main.js"></script>
 			<script type="text/javascript">
 			function displayChef()
 			{
