@@ -15,6 +15,9 @@
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>application/assets/css/main1.css">
+		<style type="text/css">
+			@font-face { font-family: Chalk; src: url('<?php echo base_url() ?>application/assets/fonts/HandyGeorge.ttf'); }
+		</style>
 	</head>
 	<body>
 
@@ -59,7 +62,7 @@
 							<header class="major" style="margin-bottom:0.5em;width:100%;display:inline-block;">	
 								<div><img src="<?php echo base_url();?>application/assets/pic/chef.png" id="chefPic"></div>
 								<div id="blogBackground">
-									<h1 id="blogTitle" style="line-height:0em;letter-spacing:0;font-weight:0;">Blog</h1>
+									<h1 id="blogTitle" style="line-height:0em;letter-spacing:0;font-weight:normal;font-family:Chalk;">Blog</h1>
 									<div class="blog-post image-post" style="display:block;margin-bottom:">
 										<!-- Post Thumb -->
 										<?php if($imagePath!="upload"){ ?>
@@ -71,17 +74,17 @@
 										<div class="post-content" style="display:inline-block;">
 											<div>
 												<!-- <div class="col-md-10 col-sm-10 col-xs-10" style="text-align:start;height:150px;vertical-align:bottom;display:table-cell;"> -->
-													<h2 style="font-size:1.5em;"><a href="#"><?php echo $title ?></a></h2>
+													<h2 style="font-size:1.5emfont-weight:normal;font-family:Chalk;;"><a href="#"><?php echo $title ?></a></h2>
 													<ul class="post-meta">
-														<li><?php echo $date ?></li>
+														<li style="font-weight:normal;font-family:Chalk;"><?php echo $date ?></li>
 													</ul>
 												<!-- </div> -->
 											</div>
-											<p style="margin-right:1em;"><?php echo $content ?></p>
+											<p style="margin-right:1em;font-weight:normal;font-family:Chalk;"><?php echo $content ?></p>
 											
 										</div>
 									</div>
-										<a href="<?php echo base_url(); ?>index.php/blogpost" style="float:left;"><i class="fa fa-angle-left"></i>  Back</a>						
+										<a href="<?php echo base_url(); ?>index.php/blogpost" style="float:left;font-weight:normal;font-family:Chalk;"><i class="fa fa-angle-left"></i>  Back</a>						
 								</div>
 							</header>
 						</div>

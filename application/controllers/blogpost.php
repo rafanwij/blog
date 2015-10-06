@@ -46,15 +46,15 @@ class blogpost extends CI_Controller {
 	$text=$text.'<!-- Post Content -->
 	<div class="post-content">
 		<div style="inline-block;margin-top:1em;">
-			<div id="postContent1" class="col-md-10 col-sm-10 col-xs-10" style="text-align:start;;height:130px;vertical-align:bottom;display:table-cell;">
-				<h2><a href="'.$detailUrl.'">'.$result->row($i)->postTitle.'</a></h2>
+			<div id="postContent1" class="col-md-10 col-sm-10 col-xs-10" style="text-align:start;font-weight:normal;font-family:Chalk;height:130px;vertical-align:bottom;display:table-cell;">
+				<h2><a href="'.$detailUrl.'" style="font-weight:normal;font-family:Chalk;">'.$result->row($i)->postTitle.'</a></h2>
 				<ul class="post-meta">
 					<li>'.$Date.'</li>
 				</ul>
 				</div>
 		</div>
-		<p style="margin-top:0.5em;">'.$content.'</p>
-		<a class="main-button" style="float:right;" href="'.$detailUrl.'">Read More <i class="fa fa-angle-right"></i></a>
+		<p style="margin-top:0.5em;font-weight:normal;font-family:Chalk;">'.$content.'</p>
+		<a class="main-button" style="float:right;font-weight:normal;font-family:Chalk;" href="'.$detailUrl.'">Read More <i class="fa fa-angle-right"></i></a>
 	</div>';
 					}
 					$msg['text'] = $text;
@@ -113,14 +113,14 @@ class blogpost extends CI_Controller {
 	<div class="post-content">
 		<div style="inline-block;margin-top:3.5em;">
 			<div id="postContent1" class="col-md-10 col-sm-10 col-xs-10" style="text-align:start;height:130px;vertical-align:bottom;display:table-cell;">
-				<h2><a href="'.$detailUrl.'">'.$result->row($i)->postTitle.'</a></h2>
+				<h2><a href="'.$detailUrl.'" style="font-weight:normal;font-family:Chalk;">'.$result->row($i)->postTitle.'</a></h2>
 				<ul class="post-meta">
-					<li>'.$Date.'</li>
+					<li style="font-weight:normal;font-family:Chalk;">'.$Date.'</li>
 				</ul>
 				</div>
 		</div>
-		<p style="margin-top:0.5em;">'.$content.'</p>
-		<a class="main-button" style="float:right;" href="'.$detailUrl.'">Read More <i class="fa fa-angle-right"></i></a>
+		<p style="margin-top:0.5em;font-weight:normal;font-family:Chalk;">'.$content.'</p>
+		<a class="main-button" style="float:right;font-weight:normal;font-family:Chalk;" href="'.$detailUrl.'">Read More <i class="fa fa-angle-right"></i></a>
 	</div>';
 		}
 		$msg['text'] = $text;

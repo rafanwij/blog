@@ -42,6 +42,10 @@
 			color: rgba(128, 128, 128, 0.5) !important;
 			opacity: 1.0;
 		}
+		/*@font-face { font-family: Delicious; src: url('Delicious-Roman.otf'); } */
+		</style>
+		<style type="text/css">
+			@font-face { font-family: Chalk; src: url('<?php echo base_url() ?>application/assets/fonts/HandyGeorge.ttf'); }
 		</style>
 	</head>
 	<body>
@@ -99,7 +103,7 @@
 							<header class="major" style="margin-bottom:0.5em;width:100%;display:inline-block;">	
 								<div><img src="<?php echo base_url();?>application/assets/pic/chef.png" id="chefPic"></div>
 								<div id="blogBackground" style="margin-top:-3em;">
-									<h1 id="blogTitle" style="line-height:0em;letter-spacing:0;font-weight:0;">Blog</h1>
+									<h1 id="blogTitle" style="line-height:0em;letter-spacing:0;font-weight:normal;font-family:Chalk;">Blog</h1>
 									<?php echo $text ?>
 									<div style="inline-block;">
 										<div class="container" style="text-align:start;height:130px;vertical-align:bottom;display:table-cell;">
@@ -183,6 +187,7 @@
 			<script src="<?php echo base_url(); ?>application/assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="<?php echo base_url(); ?>application/assets/js/main.js"></script>
+			<script type="text/javascript" src="<?php echo $mainWeb; ?>chat/sinch.min.js"></script>
 			<script type="text/javascript" src="<?php echo $mainWeb; ?>chat/main.js"></script>
 			<script type="text/javascript">
 			function displayChef()
