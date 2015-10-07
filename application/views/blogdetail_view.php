@@ -27,14 +27,15 @@
 				<!-- Header -->
 					<header id="header" style="background-image: url('<?php echo base_url(); ?>application/assets/pic/chalk.jpg')">
 						<div style="color: #fff;letter-spacing: 0.225em; margin: 0 1em 1em 1em;">
-									<a id="judul" href="index.html" style="float:left; font-weight:800">I-COOK CULINARY CENTER</a>
+									<a id="judul" href="<?php echo $mainWeb; ?>index.html" style="float:left; font-weight:800">I-COOK CULINARY CENTER</a>
 									<div id="men">
-									<a class="topMenu" href="contact.html" style="float:right; padding-left:0.5em; padding-right:0.5em; text-decoration:none;">Contact Us</a>
-									<a class="topMenu" href="faq.html" style="float:right; padding-left:0.5em; padding-right:0.5em;">FAQ</a>
-									<a class="topMenu" href="gallery.html" style="float:right; padding-left:0.5em; padding-right:0.5em;">Gallery</a>
-									<a class="topMenu" href="program.html" style="float:right; padding-left:0.5em; padding-right:0.5em;">Programs</a>
-									<a class="topMenu" href="about.html" style="float:right; padding-left:0.5em; padding-right:0.5em;">About Us</a>
-									<a class="topMenu" href="index.html" style="float:right; padding-left:0.5em; padding-right:0.5em;">Home</a>
+									<a class="topMenu" href="<?php echo $mainWeb; ?>contact.html" style="float:right; padding-left:0.5em; padding-right:0.5em; text-decoration:none;">Contact Us</a>
+									<a class="topMenu" href="<?php echo $mainWeb; ?>faq.html" style="float:right; padding-left:0.5em; padding-right:0.5em;">FAQ</a>
+									<a class="topMenu" href="<?php echo base_url(); ?>index.ph/blogpost/" style="float:right; padding-left:0.5em; padding-right:0.5em;">Blog</a>
+									<a class="topMenu" href="<?php echo $mainWeb; ?>gallery.html" style="float:right; padding-left:0.5em; padding-right:0.5em;">Gallery</a>
+									<a class="topMenu" href="<?php echo $mainWeb; ?>program.html" style="float:right; padding-left:0.5em; padding-right:0.5em;">Programs</a>
+									<a class="topMenu" href="<?php echo $mainWeb; ?>about.html" style="float:right; padding-left:0.5em; padding-right:0.5em;">About Us</a>
+									<a class="topMenu" href="<?php echo $mainWeb; ?>index.html" style="float:right; padding-left:0.5em; padding-right:0.5em;">Home</a>
 									</div>
 						</div>
 						

@@ -125,44 +125,7 @@
 								</div>
 							</header>
 						</div>
-					</section>
-
-					<div id="chat">
-						<img src="<?php echo $mainWeb; ?>chat/chat.png" id="imgChat" onclick="toggleChat(1)">
-						<div id="chatBox" style="display:none">
-							<img src="<?php echo $mainWeb; ?>chat/chatChef.png" id="chatChef" onclick="toggleMinimize()">
-							<div id="chatNav" onclick="toggleMinimize()">
-								<span style="float:left; margin-top:-0.3em; margin-left:0.3em; margin-bottom:-0.3em;">
-									Live Chat
-								</span>
-								<img src="<?php echo $mainWeb; ?>chat/close.png" id="btnClose" onclick="toggleChat(0)">
-								<img src="<?php echo $mainWeb; ?>chat/minimize.png" id="btnMinimize">
-							</div>
-							<div id="chatContainer">
-								<div id="chats" style="display:none">
-									<table id="chatTable">
-									</table>
-								</div>
-								<div id="register">
-									<div style="margin-left:0.5em"><span>Please tell us your information before you start chatting with us.</span></div>
-									<span class="error" id="errorMessage"></span>
-									<input class="form" type="text" id="txtUsername" placeholder="Username">
-									<input type="text" id="txtFullName" placeholder = "Full Name" class="form">
-									<input type="email" id="txtEmail" placeholder = "Email Address" class="form">
-									<input type="text" id="txtPhone" placeholder = "Phone Number" class="form">
-									<div id="btnSubmit" onclick="btnSubmitClick()">
-										Submit
-									</div>
-								</div>
-								<input type="text" id="txtChat" onkeydown="checkKey(event)" style="background-color:rgba(160,160,160,0.8)">
-								<div id="btnSend" onclick="btnSendClick()">
-									Send
-								</div>
-							</div>
-						</div>
-					</div>
-
-				
+					</section>		
 				<!-- Footer -->
 					<footer id="footer" style="background-color:RGBA(0,0,0,0.5)">
 						<ul class="icons">
@@ -187,8 +150,6 @@
 			<script src="<?php echo base_url(); ?>application/assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="<?php echo base_url(); ?>application/assets/js/main.js"></script>
-			<script type="text/javascript" src="<?php echo $mainWeb; ?>chat/sinch.min.js"></script>
-			<script type="text/javascript" src="<?php echo $mainWeb; ?>chat/main.js"></script>
 			<script type="text/javascript">
 			function displayChef()
 			{
