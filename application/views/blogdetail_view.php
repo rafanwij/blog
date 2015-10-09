@@ -45,12 +45,13 @@
 									<a href="#menu" class="menuToggle"><span>Menu</span></a>
 									<div id="menu" style="background-image: url('<?php echo base_url(); ?>application/assets/pic/chalk.jpg')">
 										<ul>
-											<li><a href="index.html">Home</a></li>
-											<li><a href="about.html">About Us</a></li>
-											<li><a href="program.html">Programs</a></li>
-											<li><a href="gallery.html">Gallery</a></li>
-											<li><a href="faq.html">FAQ</a></li>
-											<li><a href="contact.html">Contact Us</a></li>
+											<li><a href="<?php echo $mainWeb; ?>index.html">Home</a></li>
+											<li><a href="<?php echo $mainWeb; ?>about.html">About Us</a></li>
+											<li><a href="<?php echo $mainWeb; ?>program.html">Programs</a></li>
+											<li><a href="<?php echo $mainWeb; ?>gallery.html">Gallery</a></li>
+											<li><a href="<?php echo base_url(); ?>index.ph/blogpost/">Blog</a></li>
+											<li><a href="<?php echo $mainWeb; ?>faq.html">FAQ</a></li>
+											<li><a href="<?php echo $mainWeb; ?>contact.html">Contact Us</a></li>
 										</ul>
 									</div>
 								</li>

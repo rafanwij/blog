@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class blogpost extends CI_Controller {
 	public function index()
 	{	
+		$currentPage;
 		if($this->uri->segment(3)=='f'){
 			$this->session->set_userdata('currentPage',0);
 		}
